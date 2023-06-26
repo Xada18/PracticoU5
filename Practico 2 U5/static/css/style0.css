@@ -1,0 +1,61 @@
+form{
+	width: 400px;
+	height: 400px;
+	margin: 100px auto 0;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+
+	border-radius: 20px;
+	background-color: lightblue;
+	background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 95%, rgba(7,7,57,1) 98%);
+	
+	color: #FFFFFF;
+	font-size: 24px;
+	font-family: sans-serif;
+	text-shadow: black -1px 1px;
+}
+
+form h1{
+	margin-bottom: 10px;
+}
+
+
+form > input {
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+form > label{
+	margin-bottom: 2px;
+
+}
+
+form input[type="radio"]{
+	width: 40px;
+}
+
+form input[type="submit"]{
+	width: 200px;
+	height: 50px;
+	margin: auto auto 30px;
+
+	color: #FFFFFF;
+	font-size: 30px;
+
+	background-color: #000090;
+	border: none;
+}
+
+form input[type="submit"]:hover{
+	transform: scale(1.01);
+	cursor: pointer;
+}
+
+form .error-message{
+	margin-top: 15px;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-family: sans-serif;
+	text-shadow: red -1px 1px;
+}

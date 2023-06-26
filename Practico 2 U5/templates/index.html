@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+
+
+
+</head>
+<body>
+	<header><p>Colegio <strong>San Miguel</strong></p></header>
+	<div id="datos">
+		
+	</div>
+	<div style="width: 100%; min-height: 800px; display: flex;">
+		<nav>
+			<h2 class="anim">Indice</h2>
+			<ul>
+				{% if tipo == "preceptor"%}
+				<li class="anim" style="animation-delay: 2s;"><a href="/func1"><p>Registrar asistencia</p></a></li>
+				<li class="anim" style="animation-delay: 2.5s;"><a href="/func2"><p>Informe con detalles</p></a></li>
+				<li class="anim" style="animation-delay: 3s;"><a href="/func3"><p>Listado de asistencia</p></a></li>
+				{%elif tipo == "tutor"%}
+				<li class="anim" style="animation-delay: 2s;"><a href="/"><p>Consultar inasistencias</p></a></li>
+				{% endif %}
+			</ul>
+		</nav>
+		<section>
+			<h1>¡¡¡BIENVENIDO!!!</h1>
+		</section>
+	</div>
+</body>
+</html>

@@ -26,27 +26,35 @@
 			<div class="container">
 				<form action="/registrar_asistencia" method="post">
 						<p>Curso ID: {{ idcurso }}</p>
-						<input type="hidden" name="idcurso" value="{{ idcurso }}">
-						<div id="fecha">
-							<label>Fecha</label>
-							<input type="date" name="fecha">
+
+						<div id="data">
+							<div id="fecha">
+								<label>Fecha</label>
+								<input type="date" name="fecha">
+							</div>
+							<div id="tipoclase">
+								<div><input type="radio" name="clase" value="1"><label>Clase Normal</label></div>
+								<div><input type="radio" name="clase" value="2"><label>Clase de Ed. Fisica</label></div>
+							</div>
+							
 						</div>
-						<div id="tipoclase">
-							<div><input type="radio" name="clase" value="1"><label>Clase Normal</label></div>
-							<div><input type="radio" name="clase" value="2"><label>Clase de Ed. Fisica</label></div>
-						</div>
+
 						<div class="tabla">
 							<div class="fila">
-								<p class="item">Estudiante</p><p class="item">Asistio</p><p class="item">Justificacion(En caso de falta)</p>
+								<p class="item izq">Estudiante</p><p class="item medio">Asistio</p><p class="item der">Justificacion(En caso de falta)</p>
 							</div>
 							{% for estudiante in estudiantes %}
 							<div class="fila">
-								<label class="item">{{ estudiante.id }}, {{ estudiante.nombre }}, {{ estudiante.apellido }}</label>
-								<input class="item" type="checkbox" name="{{ estudiante.id }}/asistio" value="True">
-								<input class="item" type="text" name="{{ estudiante.id }}/justificacion" placeholder="Justificacion">
+								<label class="item izq">{{ estudiante.id }}, {{ estudiante.nombre }}, {{ estudiante.apellido }}</label>
+								<input class="item medio" type="checkbox" name="{{ estudiante.id }}/asistio" value="True">
+								<input class="item der" type="text" name="{{ estudiante.id }}/justificacion" placeholder="Justificacion">
 							</div>
 							{% endfor %}
 						</div>
+						<input type="hidden" name="idcurso" value="{{ idcurso }}">
+						
+						
+						
 						
 						<input type="submit" name="" value="Registrar asistencia">
 						{% if error %}

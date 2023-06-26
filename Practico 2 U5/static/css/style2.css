@@ -50,38 +50,45 @@ section .container form p{
 }
 
 section .container form input[type="date"]{
-	width: ;
+	width: 100px;
 	margin-bottom: 10px;
 }
 
-section .container form #tipoclase{
-	width: 90%;
+section .container form #data{
 	display: flex;
-	justify-content: space-evenly;
-
-	margin-bottom: 10px;
 }
 
-section .container form #fecha{
-	width: 20%;
+section .container form #data #tipoclase{
+	width: 400px;
+	margin-left: 30px;
 	display: flex;
 	justify-content: space-between;
-
-	margin-bottom: 10px;
 }
+
+
 
 section .container form .tabla{
 
-	margin: 50px 0;
+	margin: 10px 0 30px 0;
 	display: flex;
 	flex-direction: column;	
 }
 
 section .container form .tabla .fila {
+	margin-bottom: 10px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+
 }
 
-section .container form .tabla .item {
+section .container form .tabla .item.izq {
+	width: 30%;
+}
+
+section .container form .tabla .item.medio {
+	width: 10%;
+}
+
+section .container form .tabla .item.der{
 	width: 30%;
 }

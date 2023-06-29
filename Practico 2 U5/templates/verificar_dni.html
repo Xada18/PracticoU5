@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Consultar inasistencias</title>
+
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style2.css">
+
+
+</head>
+<body>
+	<header><p>Colegio <strong>San Miguel</strong></p></header>
+	<div style="width: 100%; min-height: 800px; display: flex;">
+		
+		<nav>
+			<h2>Indice</h2>
+			<ul>
+				<li><a href="{{ url_for('seleccionarFuncion', html='verificar_dni.html', tipo=tipo) }}"><p>Consultar inasistencias</p></a></li>
+				<li><a href="/"><p>Cerrar sesion</p></a></li>
+			</ul>
+		</nav>
+		<section>
+			<div class="container">
+				<form action="/verificarDNI" method="post">
+					<label>Ingrese DNI del estudiante</label>
+					<input type="number" maxlength="8" minlength="8" pattern="[0-9]{8}" name="dni" placeholder="Ingrese DNI">
+					<input type="submit" value="Consultar" style="margin: 100px auto 0;">
+
+					{% if error %}
+			        	<div class="error-message">{{ error }}</div>
+			    	{% endif %}
+				</form>
+			</div>
+		</section>
+	</div>
+</body>

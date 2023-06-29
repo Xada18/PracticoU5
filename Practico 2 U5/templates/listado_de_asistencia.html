@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Listado de asistencia</title>
+
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style3.css">
+
+
+</head>
+<body>
+	<header><p>Colegio <strong>San Miguel</strong></p></header>
+	<div style="width: 100%; min-height: 800px; display: flex;">
+		
+		<nav>
+			<h2>Indice</h2>
+			<ul>
+				<li><a href="{{ url_for('seleccionarFuncion', html='seleccionar_curso1.html', tipo='preceptor') }}"><p>Registrar asistencia</p></a></li>
+				<li><a href="{{ url_for('seleccionarFuncion', html='seleccionar_curso2.html', tipo='preceptor') }}"><p>Informe con detalles</p></a></li>
+				<li><a href="{{ url_for('seleccionarFuncion', html='seleccionar_curso3.html', tipo='preceptor') }}"><p>Listado de asistencia</p></a></li>
+				<li><a href="/"><p>Cerrar sesion</p></a></li>
+			</ul>
+		</nav>
+		<section>
+			<div class="container">
+
+				<p>Listado de asistencia</p>
+				<p>Curso: {{ curso.anio }}° año, {{ curso.division }}° división</p>
+				<p>Fecha: {{ fecha }}</p>
+				<p>{{ clase }}</p>
+
+				<div class="tabla">
+					<div class="columna izq" style="width: 50%;">
+						<div class="fila primera"><p>Estudiantes</p></div>
+						{% for asistencia in asistencias %}
+						<div class="fila"><p>{{ asistencia.estudiante.nombre }}, {{ asistencia.estudiante.apellido }}</p></div>							
+						{% endfor %}
+					</div>
+
+					<div class="columna der">
+						<div class="fila primera"><p>Asistencia</p></div>
+						{% for asistencia in asistencias %}
+							{% if asistencia.asistio == 's' %}
+							<div class="fila"><p>Presente</p></div>							
+							{% elif asistencia.asistio == 'n' %}
+							<div class="fila"><p>Ausente</p></div>	
+							{% endif %}
+						{% endfor %}
+					</div>
+					
+
+				</div>
+			</div>
+			
+		</section>
+	</div>
+</body>
+</html>

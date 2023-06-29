@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Consultar inasistencias</title>
+
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style4.css">
+
+
+</head>
+<body>
+	<header><p>Colegio <strong>San Miguel</strong></p></header>
+	<div style="width: 100%; min-height: 800px; display: flex;">
+		
+		<nav>
+			<h2>Indice</h2>
+			<ul>
+				<li><a href="{{ url_for('seleccionarFuncion', html='verificar_dni.html', tipo=tipo) }}"><p>Consultar inasistencias</p></a></li>
+				<li><a href="/"><p>Cerrar sesion</p></a></li>
+			</ul>
+		</nav>
+		<section>
+			<div class="container">
+				<p>Listado de inasistencias</p>
+
+				<div class="tabla">
+					<div class="columna izq impar">
+						<div class="fila primera"><p>Fecha</p></div>
+
+						{% for inasistencia in inasistencias %}
+						<div class="fila"><p>{{ inasistencia.fecha }}</p></div>							
+						{% endfor %}
+
+					</div>
+
+					<div class="columna par">
+						<div class="fila primera"><p>Clase</p></div>
+
+						{% for inasistencia in inasistencias %}
+						{% if inasistencia.codigoclase == 1 %}
+						<div class="fila"><p>Clase Normal</p></div>							
+						{% elif inasistencia.codigoclase == 2 %}
+						<div class="fila"><p>Clase de Ed. Fisica</p></div>	
+						{% endif %}
+						{% endfor %}
+
+					</div>
+
+					<div class="columna impar">
+						<div class="fila primera"><p>Justificacion</p></div>
+
+						{% for inasistencia in inasistencias %}
+						{% if not inasistencia.justificacion %}
+						<div class="fila"><p>Sin justificacion</p></div>
+						{% else %}
+						<div class="fila"><p>{{ inasistencia.justificacion }}</p></div>	
+						{% endif %}						
+						{% endfor %}
+					</div>
+				</div>
+				<div style="width:100%;padding: 0 10px;">
+					<div style="background-color: rgba(0, 0, 999, 0.2); width: 25%; margin-left: auto; margin-right: 25%; display: flex; flex-direction: row-reverse;">
+						<p style=" padding: 5px; width: 120px; text-align: right;">Total de faltas<br> {{ faltas }}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>

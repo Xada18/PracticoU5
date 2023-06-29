@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Listado de asistencia</title>
+
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style2.css">
+
+</head>
+<body>
+	<header><p>Colegio <strong>San Miguel</strong></p></header>
+	<div style="width: 100%; min-height: 800px; display: flex;">
+		
+		<nav>
+			<h2>Indice</h2>
+			<ul>
+				<li><a href="{{ url_for('seleccionarFuncion', html='seleccionar_curso1.html', tipo='preceptor') }}"><p>Registrar asistencia</p></a></li>
+				<li><a href="{{ url_for('seleccionarFuncion', html='seleccionar_curso2.html', tipo='preceptor') }}"><p>Informe con detalles</p></a></li>
+				<li><a href="{{ url_for('seleccionarFuncion', html='seleccionar_curso3.html', tipo='preceptor') }}"><p>Listado de asistencia</p></a></li>
+				<li><a href="/"><p>Cerrar sesion</p></a></li>
+			</ul>
+		</nav>
+		<section>
+			<div class="container">
+				<form action="/seleccionar_curso3" method="post">
+						
+						<div id="data">
+							<div id="fecha">
+								<label>Fecha</label>
+								<input type="date" name="fecha">
+							</div>
+							<div id="tipoclase">
+								<div><input type="radio" name="clase" value="1"><label>Clase Normal</label></div>
+								<div><input type="radio" name="clase" value="2"><label>Clase de Ed. Fisica</label></div>
+							</div>
+							
+						</div>
+						<p>Cursos</p>
+						{% for curso in cursos %}
+						<div>
+							<input type="radio" name="curso" value="{{ curso.id }}">
+							<label>{{ curso.anio }}° año, {{ curso.division }}° division<strong style="visibility: hidden;">{{ curso.id }}</strong></label>
+						</div>
+						{% endfor %}
+
+						<input type="submit" value="Seleccionar curso">
+
+						{% if error %}
+				        	<div class="error-message">{{ error }}</div>
+				    	{% endif %}
+				</form>
+			</div>
+			
+		</section>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+section .container {
+	background-color: #FFFFFF;
+	height: fit-content;
+	min-height: 500px;
+
+	padding: 50px;
+
+	color: #000000;
+	font-size: 18px;
+	font-family: sans-serif;
+
+	display: flex;
+	flex-direction: column;
+
+	background-color: #FFFFF0;
+	box-shadow: #000000 -5px 5px 5px;
+
+}
+
+section .container .tabla{
+	width: 100%;
+	margin: 10px 10px 0 10px;
+	display: flex;
+}
+
+section .container .tabla .columna{
+	width: 25%;
+}
+section .container .tabla .columna.der{
+	display: flex;
+	flex-direction: column-reverse;
+}
+section .container .tabla .columna.der .fila{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+section .container .tabla .columna.par{
+	background-color: rgba(0, 0, 999, 0.1);
+}
+
+section .container .tabla .columna.impar{
+	background-color: rgba(999, 999, 999, 0.9);
+}
+
+section .container .tabla .columna .fila{
+	padding: 5px;
+	margin: 0 0 10px 0;
+}
+
+section .container .tabla .columna .fila.primera{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+

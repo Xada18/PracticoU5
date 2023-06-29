@@ -1,0 +1,77 @@
+section .container {
+	background-color: #FFFFFF;
+	height: fit-content;
+	min-height: 500px;
+
+	padding: 50px;
+
+	color: #000000;
+	font-size: 18px;
+	font-family: sans-serif;
+
+	display: flex;
+	flex-direction: column;
+
+	background-color: #FFFFF0;
+	box-shadow: #000000 -5px 5px 5px;
+
+}
+
+section .container .tabla{
+	width: 100%;
+	display: flex;
+
+	
+
+	border: solid;
+}
+
+section .container .tabla .columna{
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	border-left: solid #000000;
+}
+
+section .container .tabla .columna.izq{
+	width: 25%;
+	border-left: none;
+}
+
+section .container .tabla .columna.der{
+	width: 15%;
+}
+
+
+
+section .container .tabla .columna > p{
+	padding: 3px 0 5px 10px;
+	margin-bottom: 10px;
+	border-bottom: solid #000000;
+}
+
+section .container .tabla .columna .fila{
+	
+	display: flex;
+	margin-bottom: 10px;
+
+	
+}
+
+section .container .tabla .columna .fila.primera{
+	margin-bottom: 15px;
+	text-decoration: underline;
+	
+}
+
+section .container .tabla .columna.izq .fila p{
+	width: 90%;
+
+}
+
+section .container .tabla .columna .fila p{
+	padding: 0 10px;
+	width: 30%;
+
+}
+
